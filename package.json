@@ -1,0 +1,14 @@
+{
+  "author": "Flotype",
+  "name": "socket-js",
+  "description": "SocketJS: Fast client-server bidirectional communication",
+  "version": "0.7.4",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Flotype/socket-js.git"
+  },
+  "main": "lib/socket.js",
+  "engines": {
+    "node": ">= v0.4.0"
+  }
+}
