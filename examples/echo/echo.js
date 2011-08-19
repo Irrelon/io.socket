@@ -1,5 +1,5 @@
 var fs = require('fs');
-var io = require('socket-js');
+var io = require('io.socket');
 var server = require('http').createServer(function (req, res) {
   fs.readFile(__dirname + '/helloworld.html', function (err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
