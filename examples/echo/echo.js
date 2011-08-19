@@ -1,7 +1,5 @@
 var fs = require('fs');
-var Socket = require('../../lib/socket').Socket;
-var WebSocket = require('../../lib/transports/websocket').WebSocket;
-var sockets = [];
+var io = require('../../lib');
 var server = require('http').createServer(function (req, res) {
   fs.readFile(__dirname + '/helloworld.html', function (err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
@@ -11,9 +9,11 @@ var server = require('http').createServer(function (req, res) {
 });
 server.listen(8080);
 
-server.on('upgrade', function (req, socket, head) {
-  var s = sockets[sockets.length] = new Socket(new WebSocket(req, socket, head));
-  s.on('data', function (a, b, c, d) {
-    console.log(a * b * c * d);
+io.listen(server);
+
+io.on('connection', function (socket) {
+  console.log('CONNECTION!');
+  socket.on('data', function () {
+    console.log(arguments);
   });
 });
