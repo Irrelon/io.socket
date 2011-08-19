@@ -1,10 +1,10 @@
 <html>
+<script src='/socket/socket.js'></script>
 <script>
-if (window.MozWebSocket) {
-  window.WebSocket = window.MozWebSocket;
-}
-var ws = new WebSocket('ws://localhost:8080/ws');
-setTimeout(function () {ws.send(JSON.stringify(['data', [1, 2, 3, 4]]));}, 1000);
+var socket = io.connect('ws://localhost:8080/ws');
+setTimeout(function () {
+  socket.emit('data', 1, 2, 3, 4);
+}, 1000);
 </script>
 <body>
 Hello world.
