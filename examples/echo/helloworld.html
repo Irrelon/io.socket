@@ -3,7 +3,7 @@
 <script>
 var socket = io.connect('ws://localhost:8080/ws');
 socket.on('echo', function () {
-  alert('Echoed:', arguments);
+  alert('Echoed: ' +  JSON.stringify(arguments));
 });
 setTimeout(function () {
   socket.emit('echo', 1, 2, 3, 4);
