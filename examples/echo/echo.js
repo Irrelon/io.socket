@@ -12,6 +12,7 @@ server.listen(8080);
 io.listen(server);
 
 io.on('connection', function (socket) {
+  console.log('CONNECTED CLIENT.');
   socket.on('echo', function () {
     var args = [];
     for (var i = 0, ll = arguments.length; i < ll; i++) {
@@ -20,4 +21,8 @@ io.on('connection', function (socket) {
     args.unshift('echo');
     socket.emit.apply(socket, args);
   });
+});
+
+io.on('disconnection', function (socket) {
+  console.log('DISCONNECTED CLIENT.');
 });
