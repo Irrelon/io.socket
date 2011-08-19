@@ -2,8 +2,11 @@
 <script src='/socket/socket.js'></script>
 <script>
 var socket = io.connect('ws://localhost:8080/ws');
+socket.on('echo', function () {
+  alert(arguments);
+});
 setTimeout(function () {
-  socket.emit('data', 1, 2, 3, 4);
+  socket.emit('echo', 1, 2, 3, 4);
 }, 1000);
 </script>
 <body>

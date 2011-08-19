@@ -12,8 +12,12 @@ server.listen(8080);
 io.listen(server);
 
 io.on('connection', function (socket) {
-  console.log('CONNECTION!');
-  socket.on('data', function () {
-    console.log(arguments);
+  socket.on('echo', function () {
+    var args = [];
+    for (var i = 0, ll = arguments.length; i < ll; i++) {
+      args[i] = arguments[i];
+    }
+    args.unshift('data');
+    socket.emit.apply(socket, args);
   });
 });
