@@ -1,8 +1,8 @@
 {
   "author": "Flotype",
-  "name": "socket-js",
-  "description": "SocketJS: Fast client-server bidirectional communication",
-  "version": "0.0.1",
+  "name": "io.socket",
+  "description": "IO.Socket: Fast client-server bidirectional communication",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/Flotype/socket-js.git"
