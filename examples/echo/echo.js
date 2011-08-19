@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
     for (var i = 0, ll = arguments.length; i < ll; i++) {
       args[i] = arguments[i];
     }
-    args.unshift('data');
+    args.unshift('echo');
     socket.emit.apply(socket, args);
   });
 });
