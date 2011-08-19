@@ -19,6 +19,7 @@ io.on('connection', function (socket) {
       args[i] = arguments[i];
     }
     args.unshift('echo');
+    console.log(args);
     socket.emit.apply(socket, args);
   });
 });
