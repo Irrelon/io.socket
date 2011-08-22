@@ -5,9 +5,9 @@ var socket = io.connect('ws://localhost:8080/ws');
 socket.on('echo', function () {
   alert('Echoed: ' +  JSON.stringify(arguments));
 });
-setTimeout(function () {
+socket.ready(function () {
   socket.emit('echo', 1, 2, 3, 4);
-}, 1000);
+});
 </script>
 <body>
 Hello world.
